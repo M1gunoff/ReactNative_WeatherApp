@@ -30,7 +30,10 @@ export default function HomeScreen() {
             setWeather(data);
             setLoading(false);
             console.log('got forecast: ', data);
-        })
+        }).catch(error => {
+            console.error('Error fetching weather data: ', error);
+            setLoading(false);
+        });
     }
 
     const handleSearch =  value => {
@@ -201,3 +204,5 @@ export default function HomeScreen() {
         </View>
     )
 }
+
+
